@@ -1,12 +1,12 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env: {
-    apiUrl: 'http://localhost:9000',
+    apiUrl: "http://10.0.2.125:9000",
     serverInitCmd:
-      'pkill -9 listmonk | cd ../ && ./listmonk --install --yes && ./listmonk > /dev/null 2>/dev/null &',
-    username: 'listmonk',
-    password: 'listmonk',
+      "pkill -9 listmonk | cd ../ && ./listmonk --install --yes && ./listmonk > /dev/null 2>/dev/null &",
+    username: "listmonk",
+    password: "listmonk",
   },
   viewportWidth: 1300,
   viewportHeight: 950,
@@ -16,8 +16,8 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+      return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: 'http://localhost:9000/admin',
+    baseUrl: "http://10.0.2.125:9000/admin",
   },
-})
+});
