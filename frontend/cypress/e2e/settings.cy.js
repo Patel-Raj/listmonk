@@ -7,8 +7,9 @@ describe("Templates", () => {
   });
 
   it("Changes some settings", () => {
-    const rootURL = "http://10.0.2.125:9000";
-    const faveURL = "http://10.0.2.125:9000/public/static/logo.png";
+    const rootURL = "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000";
+    const faveURL =
+      "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000/public/static/logo.png";
 
     cy.get('input[name="app.root_url"]').clear().type(rootURL);
     cy.get('input[name="app.favicon_url"]').type(faveURL);

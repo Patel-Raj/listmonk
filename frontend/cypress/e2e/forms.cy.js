@@ -7,7 +7,9 @@ describe("Forms", () => {
   });
 
   it("Checks form URL", () => {
-    cy.get("a[data-cy=url]").contains("http://10.0.2.125:9000");
+    cy.get("a[data-cy=url]").contains(
+      "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000"
+    );
   });
 
   it("Checks public lists", () => {

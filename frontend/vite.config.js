@@ -23,13 +23,19 @@ export default defineConfig(({ _, mode }) => {
       port: env.LISTMONK_FRONTEND_PORT || 8080,
       proxy: {
         "^/$": {
-          target: env.LISTMONK_API_URL || "http://10.0.2.125:9000",
+          target:
+            env.LISTMONK_API_URL ||
+            "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000",
         },
         "^/(api|webhooks|subscription|public|health)": {
-          target: env.LISTMONK_API_URL || "http://10.0.2.125:9000",
+          target:
+            env.LISTMONK_API_URL ||
+            "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000",
         },
         "^/(admin/custom.(css|js))": {
-          target: env.LISTMONK_API_URL || "http://10.0.2.125:9000",
+          target:
+            env.LISTMONK_API_URL ||
+            "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000",
         },
       },
     },

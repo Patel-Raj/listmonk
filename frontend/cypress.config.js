@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env: {
-    apiUrl: "http://10.0.2.125:9000",
+    apiUrl: "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com:9000",
     serverInitCmd:
       "pkill -9 listmonk | cd ../ && ./listmonk --install --yes && ./listmonk > /dev/null 2>/dev/null &",
     username: "listmonk",
@@ -18,6 +18,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: "http://10.0.2.125:9000/admin",
+    baseUrl: "http://backend-load-balancer-2067011764.us-east-1.elb.amazonaws.com/admin",
   },
 });
